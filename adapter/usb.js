@@ -96,7 +96,7 @@ USB.prototype.open = function (callback, i){
   this.device.interfaces.forEach(function(iface){
     (function(iface){
       iface.setAltSetting(iface.altSetting, function(){
-        //iface.detachKernelDriver(); // AC: LIBUSB_ERROR_BUSY http://ebanshi.cc/questions/734455/libusb-interface-already-claimed
+        iface.detachKernelDriver(); // AC: LIBUSB_ERROR_BUSY http://ebanshi.cc/questions/734455/libusb-interface-already-claimed
         iface.claim(); // must be called before using any endpoints of this interface.
         iface.endpoints.filter(function(endpoint){
           if(endpoint.direction == 'out' && !self.endpoint) {
