@@ -98,7 +98,7 @@ USB.prototype.open = function (callback, i){
       iface.setAltSetting(iface.altSetting, function(){
         
         try {
-          iface.detachKernelDriver(); // AC: LIBUSB_ERROR_BUSY http://ebanshi.cc/questions/734455/libusb-interface-already-claimed
+          //iface.detachKernelDriver(); // AC: LIBUSB_ERROR_BUSY http://ebanshi.cc/questions/734455/libusb-interface-already-claimed
         }catch(e){
           console.log('AC: caught error trying to detachKernelDriver'); 
         }
